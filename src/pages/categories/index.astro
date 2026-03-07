@@ -30,7 +30,7 @@ const categoryCounts = allPosts.reduce((acc: Record<string, number>, post) => {
             href={`/categories/${cat.data.slug}`}
             class="group flex items-center gap-4 rounded-2xl border border-border/50 bg-muted/20 p-5 transition-all duration-300 hover:border-primary/30 hover:bg-card hover:-translate-y-1"
           >
-            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/25">
               <Icon name={cat.data.icon} class="h-6 w-6" />
             </div>
             <div class="min-w-0 flex-1">
@@ -38,7 +38,7 @@ const categoryCounts = allPosts.reduce((acc: Record<string, number>, post) => {
                 <h3 class="truncate text-base font-bold group-hover:text-primary">
                   {cat.data.name}
                 </h3>
-                <span class="shrink-0 rounded bg-border/30 px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                <span class="shrink-0 rounded bg-primary/10 px-1.5 py-0.5 font-mono text-[10px] text-primary/70">
                   {categoryCounts[cat.id] || 0}
                 </span>
               </div>

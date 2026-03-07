@@ -28,7 +28,7 @@ const projects = await getCollection("projects");
         projects.map((project) => (
           <div class="group flex h-full flex-col rounded-2xl border border-border/50 bg-muted/20 p-5 transition-all duration-300 hover:border-primary/30 hover:bg-muted/40 hover:-translate-y-1 hover:shadow-lg">
             <div class="mb-4 flex items-start justify-between">
-              <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-300 group-hover:bg-primary/25">
                 {project.data.image ? (
                   <Image
                     src={project.data.image}
@@ -41,7 +41,7 @@ const projects = await getCollection("projects");
                   <span class="text-sm">✦</span>
                 )}
               </div>
-              <span class="rounded-full border border-primary/10 bg-primary/5 px-2 py-0.5 text-[9px] font-bold tracking-widest text-primary uppercase">
+              <span class="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[9px] font-bold tracking-widest text-primary uppercase">
                 {project.data.status}
               </span>
             </div>
@@ -53,7 +53,7 @@ const projects = await getCollection("projects");
             </p>
             <div class="mb-3 flex flex-wrap gap-2">
               {project.data.tech.map((t) => (
-                <span class="font-mono text-[10px] text-muted-foreground/40">
+                <span class="font-mono text-[10px] text-primary/50">
                   #{t}
                 </span>
               ))}
