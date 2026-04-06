@@ -30,7 +30,9 @@ const avatarUrl =
   title={site.labels.friendsTitle}
   description={site.labels.friendsDescription}
 >
-  <div class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-2xl p-8 duration-700 md:p-16">
+  <div
+    class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-2xl p-8 duration-700 md:p-16"
+  >
     <section class="mb-24">
       <header class="mb-12">
         <h2 class="mb-4 text-3xl font-bold">{site.labels.friendsTitle}</h2>
@@ -39,41 +41,45 @@ const avatarUrl =
         </p>
       </header>
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {friends.length === 0 ? (
-          <div class="col-span-full py-12 text-center">
-            <p class="text-sm text-muted-foreground">No friends yet.</p>
-          </div>
-        ) : (
-          friends.map((friend) => (
-            <a
-              href={friend.data.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group flex items-center gap-5 rounded-2xl border border-border/40 p-4 hover:bg-muted/30"
-            >
-              <Image
-                src={friend.data.avatar}
-                width={48}
-                height={48}
-                alt={friend.data.name}
-                loading={"lazy"}
-                class="rounded-xl bg-muted transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110"
-              />
-              <div class="flex flex-col">
-                <span class="text-sm font-bold text-foreground/80 group-hover:text-primary">
-                  {friend.data.name}
-                </span>
-                <span class="line-clamp-1 text-[11px] text-muted-foreground">
-                  {friend.data.description}
-                </span>
-              </div>
-            </a>
-          ))
-        )}
+        {
+          friends.length === 0 ? (
+            <div class="col-span-full py-12 text-center">
+              <p class="text-sm text-muted-foreground">No friends yet.</p>
+            </div>
+          ) : (
+            friends.map((friend) => (
+              <a
+                href={friend.data.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center gap-5 rounded-2xl border border-border/40 p-4 hover:bg-muted/30"
+              >
+                <Image
+                  src={friend.data.avatar}
+                  width={48}
+                  height={48}
+                  alt={friend.data.name}
+                  loading={"lazy"}
+                  class="rounded-xl bg-muted transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                />
+                <div class="flex flex-col">
+                  <span class="text-sm font-bold text-foreground/80 group-hover:text-primary">
+                    {friend.data.name}
+                  </span>
+                  <span class="line-clamp-1 text-[11px] text-muted-foreground">
+                    {friend.data.description}
+                  </span>
+                </div>
+              </a>
+            ))
+          )
+        }
       </div>
 
       <div class="mt-12 border-t border-border/40 pt-8">
-        <p class="mb-6 text-sm leading-relaxed font-light text-muted-foreground">
+        <p
+          class="mb-6 text-sm leading-relaxed font-light text-muted-foreground"
+        >
           Below is my site info. If you write a blog too, feel free to say hi.
           {
             emailContact ? (
@@ -125,7 +131,9 @@ const avatarUrl =
               </a>
             </p>
             <p class="flex flex-col gap-1 sm:flex-row sm:gap-3">
-              <span class="w-18 shrink-0 text-muted-foreground">Description</span>
+              <span class="w-18 shrink-0 text-muted-foreground"
+                >Description</span
+              >
               <span>{myInfo.description}</span>
             </p>
             <p class="flex flex-col gap-1 sm:flex-row sm:gap-3">
@@ -142,7 +150,9 @@ const avatarUrl =
       </div>
 
       <div class="mt-12 border-t border-border/40 pt-8">
-        <h3 class="mb-3 text-base font-bold text-foreground/85">Leave a note</h3>
+        <h3 class="mb-3 text-base font-bold text-foreground/85">
+          Leave a note
+        </h3>
         <p class="mb-6 text-sm font-light text-muted-foreground">
           If you want to swap links or just chat, you can leave a comment below.
         </p>
