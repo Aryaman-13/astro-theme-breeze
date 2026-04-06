@@ -6,11 +6,7 @@ dayjs.extend(relativeTime);
 
 // Dynamically load locale based on site config
 const langMap: Record<string, () => Promise<any>> = {
-  "zh-CN": () => import("dayjs/locale/zh-cn"),
-  "zh-TW": () => import("dayjs/locale/zh-tw"),
   en: () => import("dayjs/locale/en"),
-  ja: () => import("dayjs/locale/ja"),
-  ko: () => import("dayjs/locale/ko"),
 };
 
 const lang = site.meta.lang;
