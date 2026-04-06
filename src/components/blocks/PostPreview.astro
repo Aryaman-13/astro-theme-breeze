@@ -10,47 +10,70 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const category = await getEntry(
-  post.data.category.collection,
-  post.data.category.id,
-);
+const category = post.data.category
+  ? await getEntry("categories", post.data.category)
+  : undefined;
 
-// Auto-detect if post is new based on creation date
-// Draft posts should not show "new" badge
-const isNew = !post.data.draft && (post.data.new || (site.features.newPostDays > 0 &&
-  (Date.now() - new Date(post.data.createdAt).getTime()) / (1000 * 60 * 60 * 24) <= site.features.newPostDays));
+const isNew =
+  !post.data.draft &&
+  (post.data.new ||
+    (site.features.newPostDays > 0 &&
+      (Date.now() - new Date(post.data.createdAt).getTime()) /
+        (1000 * 60 * 60 * 24) <=
+        site.features.newPostDays));
+
+const href = post.data.externalUrl ?? `/posts/${post.id}`;
+const isExternal = !!post.data.externalUrl;
 ---
 
 <article
   class="group flex cursor-pointer items-center justify-between border-b border-border/40 py-6 last:border-0"
 >
-  <div>
+  <div class="flex-1 pr-4">
     <a
-      href={`/posts/${post.id}`}
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       class="inline-flex items-center gap-2 text-lg font-semibold text-foreground/80 transition-colors duration-300 group-hover:text-primary"
     >
       <span>{post.data.title}</span>
-      {isNew && (
-        <span class="rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
-          New
-        </span>
-      )}
-      {post.data.draft && (
-        <span class="rounded bg-muted px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-          Draft
-        </span>
-      )}
+      {
+        isNew && (
+          <span class="rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-bold tracking-widest text-primary uppercase">
+            New
+          </span>
+        )
+      }
+      {
+        post.data.draft && (
+          <span class="rounded bg-muted px-1.5 py-0.5 text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
+            Draft
+          </span>
+        )
+      }
     </a>
     <p
-      class="mt-2 font-mono text-[11px] text-muted-foreground italic opacity-60"
+      class="mt-1 font-mono text-[11px] text-muted-foreground italic opacity-60"
     >
-      {formatDate(post.data.createdAt)} —
-      <a href={`/categories/${category?.id}`} class="hover:text-primary">
+      {formatDate(post.data.createdAt)}
+      <!-- <a href={`/categories/${category?.id}`} class="hover:text-primary">
         {category?.data.name}
-      </a>
+      </a> -->
     </p>
+    {
+      post.data.summary && (
+        <p class="mt-2 line-clamp-2 text-xs leading-relaxed tracking-widest text-muted-foreground">
+          {post.data.summary}...
+        </p>
+      )
+    }
   </div>
-  <span class="text-border transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary">
-    <Icon name="mdi:arrow-right" />
-  </span>
+  <a
+    href={href}
+    target={isExternal ? "_blank" : undefined}
+    rel={isExternal ? "noopener noreferrer" : undefined}
+    class="shrink-0 text-border transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary"
+  >
+    <!-- <Icon name={isExternal ? "mdi:open-in-new" : "mdi:arrow-right"} /> -->
+  </a>
 </article>

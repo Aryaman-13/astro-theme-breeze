@@ -23,7 +23,9 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
-const category = await getEntry(post.data.category);
+const category = post.data.category
+  ? await getEntry("categories", post.data.category)
+  : undefined;
 const tags = (await getEntries(post.data.tags)).filter((value) => value);
 ---
 
@@ -63,13 +65,17 @@ const tags = (await getEntries(post.data.tags)).filter((value) => value);
             >
           </div>
           <span class="h-3 w-px bg-border"></span>
-          <a
-            href={`/categories/${category.data.slug}`}
-            class="flex cursor-pointer items-center gap-1.5 transition-colors hover:text-primary"
-          >
-            <Icon name={"mdi:category-outline"} />
-            <span>{category.data.name}</span>
-          </a>
+          {
+            category && (
+              <a
+                href={`/categories/${category.data.slug}`}
+                class="flex cursor-pointer items-center gap-1.5 transition-colors hover:text-primary"
+              >
+                <Icon name={"mdi:category-outline"} />
+                <span>{category.data.name}</span>
+              </a>
+            )
+          }
         </div>
 
         <div
@@ -147,7 +153,8 @@ const tags = (await getEntries(post.data.tags)).filter((value) => value);
       >
         <span class="transition-transform group-hover:-translate-x-1">
           <Icon name="mdi:arrow-left" size={14} />
-        </span> {site.labels.backToPosts}
+        </span>
+        {site.labels.backToPosts}
       </a>
       <div
         class="font-mono text-[10px] tracking-widest text-muted-foreground/30 uppercase"
