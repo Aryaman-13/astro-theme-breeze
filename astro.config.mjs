@@ -54,7 +54,7 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: "Space Grotesk",
+      name: "Special Elite",
       cssVariable: "--font-display",
     },
   ],
