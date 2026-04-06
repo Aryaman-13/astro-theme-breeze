@@ -113,27 +113,30 @@ const projects = await getCollection("projects");
     </div>
   </div>
   <script>
-    document
-      .querySelectorAll<HTMLButtonElement>(".project-toggle")
-      .forEach((btn) => {
-        const desc = btn.previousElementSibling as HTMLElement;
-        // Hide button if description isn't long enough to clamp
-        if (desc.scrollHeight <= desc.clientHeight) {
-          btn.style.display = "none";
-          return;
-        }
-        btn.addEventListener("click", () => {
-          const expanded = btn.getAttribute("aria-expanded") === "true";
-          if (expanded) {
-            desc.classList.add("line-clamp-2");
-            btn.setAttribute("aria-expanded", "false");
-            btn.textContent = "Show more";
-          } else {
-            desc.classList.remove("line-clamp-2");
-            btn.setAttribute("aria-expanded", "true");
-            btn.textContent = "Show less";
+    function setupToggles() {
+      document
+        .querySelectorAll<HTMLButtonElement>(".project-toggle")
+        .forEach((btn) => {
+          const desc = btn.previousElementSibling as HTMLElement;
+          if (desc.scrollHeight <= desc.clientHeight) {
+            btn.style.display = "none";
+            return;
           }
+          btn.addEventListener("click", () => {
+            const expanded = btn.getAttribute("aria-expanded") === "true";
+            if (expanded) {
+              desc.classList.add("line-clamp-2");
+              btn.setAttribute("aria-expanded", "false");
+              btn.textContent = "Show more";
+            } else {
+              desc.classList.remove("line-clamp-2");
+              btn.setAttribute("aria-expanded", "true");
+              btn.textContent = "Show less";
+            }
+          });
         });
-      });
+    }
+
+    document.addEventListener("astro:page-load", setupToggles);
   </script>
 </Layout>
