@@ -25,6 +25,7 @@ const site = {
     { name: "Home", subtitle: "Index", href: "/" },
     { name: "Projects", subtitle: "Works", href: "/projects" },
     { name: "Writing", subtitle: "Blog", href: "/posts" },
+    { name: "Education", subtitle: "Learn", href: "/education" },
     { name: "About", subtitle: "Me", href: "/about" },
   ],
 
@@ -158,6 +159,10 @@ const site = {
     projectsDescription: "Small tools built for fun or to solve real problems.",
     friendsTitle: "Friends",
     friendsDescription: "Like-minded folks around the web.",
+    educationTitle: "Education",
+    educationDescription: "Academic background and self-directed learning.",
+    educationTimelineTitle: "Timeline",
+    educationCoursesTitle: "Courses & Certifications",
     toolsTitle: "Stack",
     aboutTitle: "About",
     aboutDescription: "About this site and its author",

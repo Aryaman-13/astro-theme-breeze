@@ -1,6 +1,6 @@
 import { file, glob } from "astro/loaders";
-import { reference, z } from "astro:content";
-import { defineCollection } from "astro:content";
+import { defineCollection, reference } from "astro:content";
+import { z } from "zod";
 
 function slug() {
   return z
@@ -94,10 +94,41 @@ const pages = defineCollection({
   }),
 });
 
+const educationTimeline = defineCollection({
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/education/timeline",
+  }),
+  schema: z.object({
+    degree: z.string(),
+    institution: z.string(),
+    period: z.string(),
+    description: z.string().optional(),
+    tags: z.array(z.string()).optional().default([]),
+    gpa: z.string().optional(),
+  }),
+});
+
+const educationCourses = defineCollection({
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/education/courses",
+  }),
+  schema: z.object({
+    name: z.string(),
+    provider: z.string(),
+    year: z.string(),
+    link: z.string().url().optional(),
+    icon: z.string().optional(),
+  }),
+});
+
 export const collections = {
   posts,
   projects,
   categories,
   tags,
   pages,
+  educationTimeline,
+  educationCourses,
 };
