@@ -26,7 +26,7 @@ const courses = await getCollection("educationCourses");
 
     <!-- Timeline Section -->
     <section class="mb-16">
-      <h3 class="mb-8 text-xs font-bold tracking-widest text-primary uppercase">
+      <h3 class="mb-8 text-lg font-bold tracking-widest text-primary uppercase">
         {site.labels.educationTimelineTitle}
       </h3>
 
@@ -53,19 +53,19 @@ const courses = await getCollection("educationCourses");
                 <div class="w-full rounded-2xl border border-border/50 bg-muted/20 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-muted/40 hover:shadow-lg">
                   <div class="mb-3 flex items-start justify-between gap-2">
                     <div class="min-w-0">
-                      <h4 class="text-sm font-bold tracking-wider">
+                      <h4 class="text-base font-bold tracking-wider">
                         {entry.data.degree}
                       </h4>
-                      <p class="mt-0.5 text-xs text-muted-foreground">
+                      <p class="mt-0.5 text-sm text-muted-foreground">
                         {entry.data.institution}
                       </p>
                     </div>
                     <div class="flex shrink-0 flex-col items-end gap-1">
-                      <span class="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[10px] font-bold tracking-widest text-primary">
+                      <span class="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[12px] font-bold tracking-wider text-primary">
                         {entry.data.period}
                       </span>
                       {entry.data.gpa && (
-                        <span class="text-[10px] tracking-widest text-muted-foreground/70 uppercase">
+                        <span class="text-[12px] tracking-widest text-foreground/90 uppercase">
                           {entry.data.gpa}
                         </span>
                       )}
@@ -97,70 +97,45 @@ const courses = await getCollection("educationCourses");
 
     <!-- Courses Section -->
     <section>
-      <h3 class="mb-8 text-xs font-bold tracking-widest text-primary uppercase">
+      <h3 class="mb-8 text-sm font-bold tracking-widest text-primary uppercase">
         {site.labels.educationCoursesTitle}
       </h3>
 
       <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
         {
-          courses.map((course, i) =>
-            course.data.link ? (
-              <a
-                href={course.data.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group flex items-start gap-3.5 rounded-2xl border border-border/50 bg-muted/20 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-muted/40 hover:shadow-md"
-                style={`animation-delay: ${i * 80}ms`}
-              >
-                {/* <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary/60 transition-all duration-300 group-hover:bg-primary/20 group-hover:text-primary">
+          courses.map((course, i) => (
+            <a
+              href={course.data.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-start gap-3.5 rounded-2xl border border-border/50 bg-muted/20 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-muted/40 hover:shadow-md"
+              style={`animation-delay: ${i * 80}ms`}
+            >
+              {/* <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary/60 transition-all duration-300 group-hover:bg-primary/20 group-hover:text-primary">
                   <Icon
                     name={course.data.icon ?? "mdi:certificate-outline"}
                     class="h-4 w-4"
                   />
                 </div> */}
-                <div class="min-w-0 flex-1">
-                  <div class="flex items-start justify-between gap-2">
-                    <p class="text-xs font-bold tracking-widest text-foreground/90 transition-colors duration-300 group-hover:text-primary">
-                      {course.data.name}
-                    </p>
-                    <Icon
-                      name="mdi:open-in-new"
-                      class="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground/40 transition-colors duration-300 group-hover:text-primary/60"
-                    />
-                  </div>
-                  <p class="mt-0.5 text-[10px] tracking-widest text-muted-foreground/70">
-                    {course.data.provider}
-                  </p>
-                  <span class="mt-1.5 inline-block rounded-full border border-border/40 bg-muted/30 px-1.5 py-0.5 text-[9px] font-bold tracking-widest text-muted-foreground/60 uppercase">
-                    {course.data.year}
-                  </span>
-                </div>
-              </a>
-            ) : (
-              <div
-                class="flex items-start gap-3.5 rounded-2xl border border-border/50 bg-muted/20 p-4"
-                style={`animation-delay: ${i * 80}ms`}
-              >
-                <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary/60">
-                  <Icon
-                    name={course.data.icon ?? "mdi:certificate-outline"}
-                    class="h-4 w-4"
-                  />
-                </div>
-                <div class="min-w-0 flex-1">
-                  <p class="text-xs font-bold tracking-widest text-foreground/90">
+              <div class="min-w-0 flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <p class="text-sm font-bold tracking-widest text-foreground/90 transition-colors duration-300 group-hover:text-primary">
                     {course.data.name}
                   </p>
-                  <p class="mt-0.5 text-[10px] tracking-widest text-muted-foreground/70">
-                    {course.data.provider}
-                  </p>
-                  <span class="mt-1.5 inline-block rounded-full border border-border/40 bg-muted/30 px-1.5 py-0.5 text-[9px] font-bold tracking-widest text-muted-foreground/60 uppercase">
-                    {course.data.year}
-                  </span>
+                  <Icon
+                    name="mdi:open-in-new"
+                    class="mt-0.5 h-3 w-3 shrink-0 text-muted-foreground/40 transition-colors duration-300 group-hover:text-primary/90"
+                  />
                 </div>
+                <p class="mt-0.5 text-[12px] tracking-widest text-foreground/70">
+                  {course.data.provider}
+                </p>
+                <span class="mt-1.5 inline-block rounded-full border border-border/40 bg-muted/30 px-1.5 py-0.5 text-[11px] font-bold tracking-widest text-primary/90 uppercase">
+                  {course.data.year}
+                </span>
               </div>
-            ),
-          )
+            </a>
+          ))
         }
       </div>
     </section>
