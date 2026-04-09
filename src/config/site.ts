@@ -12,8 +12,6 @@ const site = {
     title: "",
     description: "",
     author: "Your Name",
-    // logo: "/logo.svg",
-    ogImage: "/og-image.png",
     lang: "en",
   },
 
@@ -62,6 +60,15 @@ const site = {
     ],
   },
 
+  // --- Comments ---
+  comments: {
+    enabled: artalkEnabled,
+    provider: "artalk" as const,
+    artalk: {
+      server: artalkServer,
+    },
+  },
+
   // --- Feature Toggles ---
   features: {
     rss: true,
@@ -76,8 +83,6 @@ const site = {
     postsDescription: "Notes, thoughts, and technical musings",
     projectsTitle: "Projects",
     projectsDescription: "Small tools built for fun or to solve real problems.",
-    friendsTitle: "Friends",
-    friendsDescription: "Like-minded folks around the web.",
     educationTitle: "Education",
     educationDescription: "Academic background and self-directed learning.",
     educationTimelineTitle: "Timeline",

@@ -142,20 +142,6 @@ const experienceWork = defineCollection({
   }),
 });
 
-const experienceInvolvement = defineCollection({
-  loader: glob({
-    pattern: "**/*.{md,mdx}",
-    base: "./src/content/experience/involvement",
-  }),
-  schema: z.object({
-    role: z.string(),
-    organization: z.string(),
-    period: z.string(),
-    description: z.string().optional(),
-    tags: z.array(z.string()).optional().default([]),
-  }),
-});
-
 export const collections = {
   posts,
   projects,
@@ -165,5 +151,4 @@ export const collections = {
   educationTimeline,
   educationCourses,
   experienceWork,
-  experienceInvolvement,
 };
