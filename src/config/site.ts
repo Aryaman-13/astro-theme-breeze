@@ -9,13 +9,11 @@ const artalkEnabled =
 const site = {
   // --- Site Metadata ---
   meta: {
-    title: "Breeze",
-    description: "A minimal Astro theme for personal websites",
+    title: "",
+    description: "",
     author: "Your Name",
-    logo: "/logo.svg",
+    // logo: "/logo.svg",
     ogImage: "/og-image.png",
-    // HTML lang attribute, affects page language and date formatting
-    // Options: "zh-CN", "en", "ja", etc.
     lang: "en",
   },
 
@@ -23,9 +21,11 @@ const site = {
   // subtitle: decorative label shown below the name (uppercase, small text)
   navigation: [
     { name: "Home", subtitle: "Index", href: "/" },
+    { name: "Education", subtitle: "Learn", href: "/education" },
+    { name: "Experience", subtitle: "Work", href: "/experience" },
     { name: "Projects", subtitle: "Works", href: "/projects" },
     { name: "Writing", subtitle: "Blog", href: "/posts" },
-    { name: "Education", subtitle: "Learn", href: "/education" },
+
     { name: "About", subtitle: "Me", href: "/about" },
   ],
 
@@ -38,13 +38,6 @@ const site = {
     },
     { name: "Email", href: "mailto:hello@example.com", icon: "mdi:email" },
   ],
-
-  friendCard: {
-    name: "Breeze",
-    description: "A minimal Astro theme for personal websites",
-    link: "https://your-domain.com",
-    avatar: "https://your-domain.com/logo.svg",
-  },
 
   // --- Homepage Hero ---
   hero: {
@@ -163,6 +156,10 @@ const site = {
     educationDescription: "Academic background and self-directed learning.",
     educationTimelineTitle: "Timeline",
     educationCoursesTitle: "Courses & Certifications",
+    experienceTitle: "Experience",
+    experienceDescription: "Where I've worked and what I've been part of.",
+    experienceWorkTitle: "Work",
+    experienceInvolvementTitle: "Involvement",
     toolsTitle: "Stack",
     aboutTitle: "About",
     aboutDescription: "About this site and its author",

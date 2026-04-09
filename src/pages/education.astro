@@ -26,7 +26,9 @@ const courses = await getCollection("educationCourses");
 
     <!-- Timeline Section -->
     <section class="mb-16">
-      <h3 class="mb-8 text-lg font-bold tracking-widest text-primary uppercase">
+      <h3
+        class="mb-8 text-lg font-semibold tracking-widest text-foreground/70 uppercase"
+      >
         {site.labels.educationTimelineTitle}
       </h3>
 
@@ -50,7 +52,7 @@ const courses = await getCollection("educationCourses");
                 </div>
 
                 {/* <!-- Card --> */}
-                <div class="w-full rounded-2xl border border-border/50 bg-muted/20 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-muted/40 hover:shadow-lg">
+                <div class="w-full rounded-2xl border border-border/50 bg-card/10 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-muted/40 hover:shadow-lg">
                   <div class="mb-3 flex items-start justify-between gap-2">
                     <div class="min-w-0">
                       <h4 class="text-base font-bold tracking-wider">
@@ -97,7 +99,9 @@ const courses = await getCollection("educationCourses");
 
     <!-- Courses Section -->
     <section>
-      <h3 class="mb-8 text-sm font-bold tracking-widest text-primary uppercase">
+      <h3
+        class="mb-8 text-sm font-semibold tracking-widest text-foreground/70 uppercase"
+      >
         {site.labels.educationCoursesTitle}
       </h3>
 
@@ -108,7 +112,7 @@ const courses = await getCollection("educationCourses");
               href={course.data.link}
               target="_blank"
               rel="noopener noreferrer"
-              class="group flex items-start gap-3.5 rounded-2xl border border-border/50 bg-muted/20 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-muted/40 hover:shadow-md"
+              class="group flex items-start gap-3.5 rounded-2xl border border-border/50 bg-card/10 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-muted/40 hover:shadow-md"
               style={`animation-delay: ${i * 80}ms`}
             >
               {/* <div class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary/60 transition-all duration-300 group-hover:bg-primary/20 group-hover:text-primary">

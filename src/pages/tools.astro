@@ -14,7 +14,7 @@ import ToolLogo from "@/components/blocks/ToolLogo.astro";
       {
         site.tools.map((category) => (
           <section>
-            <h3 class="mb-4 text-xs font-bold tracking-widest text-primary uppercase">
+            <h3 class="mb-4 text-xs font-semibold tracking-widest text-foreground/70 uppercase">
               {category.name}
             </h3>
             <div class="grid grid-cols-2 gap-3 md:grid-cols-3">
@@ -24,7 +24,7 @@ import ToolLogo from "@/components/blocks/ToolLogo.astro";
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="group flex items-center gap-2.5 rounded-xl border border-border/50 bg-muted/20 px-4 py-3 text-sm text-foreground/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-muted/30 hover:text-primary"
+                    class="group flex items-center gap-2.5 rounded-xl border border-border/50 bg-card/10 px-4 py-3 text-sm text-foreground/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-muted/30 hover:text-primary"
                   >
                     <ToolLogo
                       name={item.name}
@@ -35,7 +35,7 @@ import ToolLogo from "@/components/blocks/ToolLogo.astro";
                     <span>{item.name}</span>
                   </a>
                 ) : (
-                  <div class="flex items-center gap-2.5 rounded-xl border border-border/50 bg-muted/20 px-4 py-3 text-sm text-foreground/80">
+                  <div class="flex items-center gap-2.5 rounded-xl border border-border/50 bg-card/10 px-4 py-3 text-sm text-foreground/80">
                     <ToolLogo
                       name={item.name}
                       logo={item.logo}

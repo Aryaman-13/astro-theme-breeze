@@ -123,6 +123,39 @@ const educationCourses = defineCollection({
   }),
 });
 
+const experienceWork = defineCollection({
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/experience/work",
+  }),
+  schema: z.object({
+    role: z.string(),
+    company: z.string(),
+    period: z.string(),
+    startDate: z.coerce.date(),
+    location: z.string().optional(),
+    type: z
+      .enum(["full-time", "part-time", "internship", "contract", "freelance"])
+      .optional(),
+    description: z.string().optional(),
+    tags: z.array(z.string()).optional().default([]),
+  }),
+});
+
+const experienceInvolvement = defineCollection({
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/experience/involvement",
+  }),
+  schema: z.object({
+    role: z.string(),
+    organization: z.string(),
+    period: z.string(),
+    description: z.string().optional(),
+    tags: z.array(z.string()).optional().default([]),
+  }),
+});
+
 export const collections = {
   posts,
   projects,
@@ -131,4 +164,6 @@ export const collections = {
   pages,
   educationTimeline,
   educationCourses,
+  experienceWork,
+  experienceInvolvement,
 };
