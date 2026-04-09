@@ -11,7 +11,3 @@ export const getPosts = async () => {
     return bDate - aDate;
   });
 };
-
-export const getRecentPosts = async (num: number) => {
-  return (await getPosts()).slice(0, num);
-};
