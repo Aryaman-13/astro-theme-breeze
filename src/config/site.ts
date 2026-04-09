@@ -79,77 +79,10 @@ const site = {
 
   // --- Feature Toggles ---
   features: {
-    search: true,
     rss: true,
     // Auto-mark posts as "new" if published within this many days (0 to disable)
     newPostDays: 7,
   },
-
-  // --- Tools Page Data ---
-  // Each item can use either `icon` (Iconify name) or `logo` (public path or { light, dark } paths)
-  tools: [
-    {
-      name: "development",
-      items: [
-        {
-          name: "VS Code",
-          link: "https://code.visualstudio.com",
-          icon: "mdi:microsoft-visual-studio-code",
-        },
-        {
-          name: "WebStorm",
-          link: "https://www.jetbrains.com/webstorm",
-          icon: "mdi:code-braces",
-        },
-        { name: "Terminal", icon: "mdi:terminal" },
-        { name: "Git", link: "https://git-scm.com", icon: "mdi:git" },
-        { name: "Docker", link: "https://www.docker.com", icon: "mdi:docker" },
-        { name: "Postman", link: "https://www.postman.com", icon: "mdi:api" },
-      ],
-    },
-    {
-      name: "design",
-      items: [
-        {
-          name: "Figma",
-          link: "https://www.figma.com",
-          icon: "mdi:vector-polygon",
-        },
-        {
-          name: "Sketch",
-          link: "https://www.sketch.com",
-          icon: "mdi:vector-square",
-        },
-        {
-          name: "Adobe XD",
-          link: "https://www.adobe.com/products/xd.html",
-          icon: "mdi:pencil-ruler",
-        },
-        {
-          name: "Photoshop",
-          link: "https://www.adobe.com/products/photoshop.html",
-          icon: "mdi:image-edit",
-        },
-      ],
-    },
-    {
-      name: "productivity",
-      items: [
-        { name: "Notion", link: "https://www.notion.so", icon: "mdi:notebook" },
-        {
-          name: "Obsidian",
-          link: "https://obsidian.md",
-          icon: "mdi:diamond-stone",
-        },
-        {
-          name: "Raycast",
-          link: "https://www.raycast.com",
-          icon: "mdi:lightning-bolt",
-        },
-        { name: "Arc Browser", link: "https://arc.net", icon: "mdi:web" },
-      ],
-    },
-  ],
 
   // --- UI Labels ---
   // Customize these values to change the text displayed on pages
@@ -167,8 +100,6 @@ const site = {
     experienceTitle: "Experience",
     experienceDescription: "Where I've worked and what I've been part of.",
     experienceWorkTitle: "Work",
-    experienceInvolvementTitle: "Involvement",
-    toolsTitle: "Stack",
     aboutTitle: "About",
     aboutDescription: "About this site and its author",
     backToPosts: "Back to posts",
@@ -178,8 +109,6 @@ const site = {
       "The page you're looking for may have been removed or the link is broken.",
     endOfPost: "End of Post",
     tableOfContents: "Table of Contents",
-    searchPlaceholder: "Search posts, tags, or commands...",
-    searchNavigate: "Navigate",
     commentSuccess: "Comment submitted",
   },
 

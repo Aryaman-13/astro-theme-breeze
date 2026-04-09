@@ -3,10 +3,3 @@ export interface HeadProps {
   description: string;
   image?: string;
 }
-
-export interface ToolLogoVariant {
-  light?: string;
-  dark?: string;
-}
-
-export type ToolLogoSource = string | ToolLogoVariant;

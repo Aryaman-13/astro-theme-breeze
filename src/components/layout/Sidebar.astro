@@ -3,16 +3,11 @@ import site from "@/config/site";
 import Nav from "./Nav.astro";
 import { Icon } from "astro-icon/components";
 import Brand from "./Brand.astro";
-import SearchModal from "../blocks/SearchModal.astro";
-import SearchBox from "./SearchBox.astro";
 ---
 
 <aside
   class="flex w-full flex-col border-b border-border bg-muted/20 p-6 md:w-[35%] md:border-r md:border-b-0 md:p-12"
-  data-pagefind-ignore="all"
 >
-  <SearchBox />
-
   <Brand />
 
   <Nav />
@@ -31,9 +26,5 @@ import SearchBox from "./SearchBox.astro";
         ))
       }
     </div>
-
-    {/* <ThemeToggle /> */}
   </div>
-
-  <SearchModal />
 </aside>
