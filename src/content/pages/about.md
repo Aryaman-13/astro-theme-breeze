@@ -5,22 +5,20 @@ description: About this site and its author
 
 ## About Me
 
-Hello! I'm a developer who loves building things for the web.
+Hello! I'm a developer who enjoys learning new stuff, figuring out how the work. I am quite curious, so I tend to explore a lot.
 
-I created this site using [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), and I'm sharing it as a theme called **Breeze** so others can use it too.
+## Passion
 
-## Tech Stack
-
-- Astro + Tailwind CSS
-- TypeScript
-- Markdown / MDX
+Outside of work, I like keeping things simple. You’ll usually find me listening to music, going on long walks, or trying out new food (always open to recommendations). I enjoy moments that help me slow down, reconnect with people and think.
 
 ## What I Write About
 
-- Web development tips and tutorials
-- Tools and workflows I find useful
-- Thoughts on technology and design
+- AI tools & development
+- Thoughts on technology and where it’s headed
+- Personal ideas, systems, and principles I’m figuring out
 
-## Contact
+I use this space to share things I’m learning, thinking about, or experimenting with. Some posts might be practical, some might just be me thinking out loud.
 
-Feel free to reach out through the social links below.
+---
+
+I created this wesbite using the [template](https://astro-theme-breeze.pages.dev/friends/)

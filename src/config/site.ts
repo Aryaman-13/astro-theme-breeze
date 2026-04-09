@@ -20,23 +20,31 @@ const site = {
   // --- Navigation ---
   // subtitle: decorative label shown below the name (uppercase, small text)
   navigation: [
-    { name: "Home", subtitle: "Index", href: "/" },
+    { name: "About", subtitle: "Me", href: "/" },
     { name: "Education", subtitle: "Learn", href: "/education" },
     { name: "Experience", subtitle: "Work", href: "/experience" },
     { name: "Projects", subtitle: "Works", href: "/projects" },
     { name: "Writing", subtitle: "Blog", href: "/posts" },
-
-    { name: "About", subtitle: "Me", href: "/about" },
   ],
 
   // --- Social Links ---
   social: [
     {
       name: "GitHub",
-      href: "https://github.com/your-username",
+      href: "https://github.com/Aryaman-13",
       icon: "mdi:github",
     },
-    { name: "Email", href: "mailto:hello@example.com", icon: "mdi:email" },
+    {
+      name: "Linkedin",
+      href: "https://www.linkedin.com/in/aryaman-khandelwal/",
+      icon: "mdi:linkedin",
+    },
+    { name: "Email", href: "mailto:aryaman13jan@gmail.com", icon: "mdi:email" },
+    {
+      name: "Medium",
+      href: "https://medium.com/@aryaman13jan",
+      icon: "mdi:medium",
+    },
   ],
 
   // --- Homepage Hero ---
