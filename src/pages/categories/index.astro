@@ -8,8 +8,8 @@ const allCategories = await getCollection("categories");
 const allPosts = await getPosts();
 
 const categoryCounts = allPosts.reduce((acc: Record<string, number>, post) => {
-  const catId = post.data.category.id;
-  acc[catId] = (acc[catId] || 0) + 1;
+  const catSlug = post.data.category;
+  if (catSlug) acc[catSlug] = (acc[catSlug] || 0) + 1;
   return acc;
 }, {});
 ---
@@ -41,7 +41,7 @@ const categoryCounts = allPosts.reduce((acc: Record<string, number>, post) => {
                   {cat.data.name}
                 </h3>
                 <span class="shrink-0 rounded bg-primary/10 px-1.5 py-0.5 font-mono text-[10px] text-primary/70">
-                  {categoryCounts[cat.id] || 0}
+                  {categoryCounts[cat.data.slug] || 0}
                 </span>
               </div>
               <p class="line-clamp-2 text-xs text-muted-foreground">
