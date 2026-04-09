@@ -62,21 +62,6 @@ const site = {
     ],
   },
 
-  // --- Footer ---
-  footer: {
-    copyright: "© 2025 Breeze",
-    builtWith: "Built with Astro",
-  },
-
-  // --- Comments ---
-  comments: {
-    enabled: artalkEnabled,
-    provider: "artalk" as const,
-    artalk: {
-      server: artalkServer,
-    },
-  },
-
   // --- Feature Toggles ---
   features: {
     rss: true,
