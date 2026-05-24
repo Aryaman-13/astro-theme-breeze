@@ -39,9 +39,9 @@ const site = {
     },
     { name: "Email", href: "mailto:aryaman13jan@gmail.com", icon: "mdi:email" },
     {
-      name: "Medium",
-      href: "https://medium.com/@aryaman13jan",
-      icon: "mdi:medium",
+      name: "Substack",
+      href: "https://substack.com/@aryamankhandelwal1",
+      icon: "mdi:notebook-edit",
     },
   ],
 
